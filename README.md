@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aarogya Design System 🎨
 
-## Getting Started
+A premium, production-grade UI component library built with **Next.js 15+**, **TypeScript**, and **Tailwind CSS v4**. Aarogya (Sanskrit for "Overall Health/Wellbeing") focuses on soft aesthetics, high accessibility, and a seamless developer experience.
 
-First, run the development server:
+![Documentation Preview](https://img.shields.io/badge/Aesthetics-Premium-blueviolet)
+![Next.js](https://img.shields.io/badge/Next.js-15+-black)
+![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8)
+![Radix UI](https://img.shields.io/badge/Radix_UI-Headless-6b21a8)
+
+## ✨ Features
+
+- **Soft Modern Aesthetic**: Curated color palette (Cream, Soft Sand, Soft Pink) with premium shadows and micro-animations.
+- **Tailwind CSS v4**: Built on the latest CSS-first engine for maximum performance.
+- **Accessible (WAI-ARIA)**: Built on top of Radix UI primitives for keyboard navigation and screen reader support.
+- **Developer First**: Comprehensive documentation with interactive examples, API references, and copy-paste CLI integration.
+- **Fully Typed**: Strict TypeScript definitions for all props and variants.
+- **Interactive Docs**: Built-in scroll spying, dynamic pagination, and responsive layouts.
+
+## 🚀 Quick Start
+
+### Installation
+
+The easiest way to integrate Aarogya is via our CLI:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx aarogya-ui@latest init
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Manual Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install Dependencies**:
+   ```bash
+   npm install lucide-react clsx tailwind-merge class-variance-authority framer-motion @radix-ui/react-checkbox @radix-ui/react-dialog @radix-ui/react-select @radix-ui/react-switch @radix-ui/react-tabs @radix-ui/react-radio-group
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Tailwind Config**:
+   Ensure your `globals.css` uses Tailwind v4:
+   ```css
+   @import "tailwindcss";
+   @import "./tokens.css";
+   ```
 
-## Learn More
+## 📂 Component Suite
 
-To learn more about Next.js, take a look at the following resources:
+### UI & Data Display
+- **Button**: Multi-variant, size-aware interactive element.
+- **Badge**: Status indicators with soft/outline variants.
+- **Card**: Structured content containers with premium elevation.
+- **Table**: Responsive tabular data presentation.
+- **Tabs**: Smooth-transitioning navigation with underline indicators.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Forms & Controls
+- **Input & Textarea**: Refined text entry with validation states.
+- **Checkbox & Radio Group**: Accessible selection with description support.
+- **Select**: Sophisticated dropdowns with grouping.
+- **Switch**: Clean toggle interfaces for binary settings.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Feedback & Overlays
+- **Alert**: High-visibility feedback for success, info, and errors.
+- **Dialog**: Accessible modal overlays with background blur.
+- **Loading**: Spinner and Skeleton states for async operations.
 
-## Deploy on Vercel
+## 🛠️ Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Framework**: Next.js 15+ (App Router)
+- **Styling**: Tailwind CSS v4
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
+- **Headless UI**: Radix UI
+- **Documentation**: Markdown + Custom Doc Layout
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+MIT © [Aarogya Design Team]

@@ -53,7 +53,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           }
         });
       },
-      { rootMargin: "-20% 0% -35% 0%", threshold: 0 }
+      { rootMargin: "-80px 0px -80% 0px", threshold: 0 }
     );
 
     const sections = ["introduction", "usage", "props", "quick-start"];
@@ -71,11 +71,25 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
   const prevItem = currentIndex > 0 ? allItems[currentIndex - 1] : null;
   const nextItem = currentIndex < allItems.length - 1 ? allItems[currentIndex + 1] : null;
 
-  const onThisPageLinks = [
+  const isComponentPage = pathname.startsWith("/docs/components/");
+  const isInstallationPage = pathname === "/docs/installation";
+  const isThemingPage = pathname === "/docs/theming";
+  const isIntroPage = pathname === "/docs";
+
+  let onThisPageLinks = [
     { id: 'introduction', label: 'Introduction' },
-    { id: 'usage', label: 'Usage' },
-    { id: 'props', label: 'API Reference' },
-    { id: 'quick-start', label: 'Quick Start' },
+    { 
+      id: 'usage', 
+      label: isComponentPage ? 'Usage' : isInstallationPage ? 'Installation' : isIntroPage ? 'Philosophy' : 'Customization' 
+    },
+    { 
+      id: 'props', 
+      label: isComponentPage ? 'API Reference' : isInstallationPage ? 'Tailwind Setup' : isIntroPage ? 'Ecosystem' : 'Design Tokens' 
+    },
+    { 
+      id: 'quick-start', 
+      label: isComponentPage ? 'Quick Start' : isInstallationPage ? 'Verification' : isIntroPage ? 'Getting Started' : 'Themes' 
+    },
   ];
 
   return (
@@ -201,10 +215,22 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
                     <li 
                       key={link.id}
                       onClick={() => {
-                        const el = document.getElementById(link.id);
-                        if (el) {
-                          const top = el.getBoundingClientRect().top + window.pageYOffset - 100;
-                          window.scrollTo({ top, behavior: 'smooth' });
+                        if (link.id === 'introduction') {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                          const el = document.getElementById(link.id);
+                          if (el) {
+                            const offset = 100;
+                            const bodyRect = document.body.getBoundingClientRect().top;
+                            const elementRect = el.getBoundingClientRect().top;
+                            const elementPosition = elementRect - bodyRect;
+                            const offsetPosition = elementPosition - offset;
+
+                            window.scrollTo({
+                              top: offsetPosition,
+                              behavior: 'smooth'
+                            });
+                          }
                         }
                       }}
                       className={cn(
