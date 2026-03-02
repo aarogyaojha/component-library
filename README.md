@@ -1,13 +1,15 @@
-# Aarogya Design System 🎨
+# Aero UI | Premium React Components 🎨
 
-A premium, production-grade UI component library built with **Next.js 15+**, **TypeScript**, and **Tailwind CSS v4**. Aarogya (Sanskrit for "Overall Health/Wellbeing") focuses on soft aesthetics, high accessibility, and a seamless developer experience.
+A high-performance, accessible, and beautiful UI component library built with **Next.js 15+**, **TypeScript**, and **Tailwind CSS v4**.
 
-![Documentation Preview](https://img.shields.io/badge/Aesthetics-Premium-blueviolet)
-![Next.js](https://img.shields.io/badge/Next.js-15+-black)
-![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8)
-![Radix UI](https://img.shields.io/badge/Radix_UI-Headless-6b21a8)
-![Storybook](https://img.shields.io/badge/Storybook-v8-ff4785)
-![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
+[**Live Demo 🚀**](https://component-library-ashy.vercel.app/)
+
+![Vercel](https://img.shields.io/badge/Vercel-Live-brightgreen?logo=vercel&link=https://component-library-ashy.vercel.app/)
+![Next.js](https://img.shields.io/badge/Next.js-15+-black?logo=nextdotjs)
+![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss)
+![Radix UI](https://img.shields.io/badge/Radix_UI-Headless-6b21a8?logo=radixui)
+![Storybook](https://img.shields.io/badge/Storybook-v8-ff4785?logo=storybook)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript)
 
 ## ✨ Features
 
