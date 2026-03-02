@@ -4,7 +4,7 @@
   "type": "module",
   "description": "CLI for initializing and adding Aarogya UI components — a premium React + Tailwind v4 component library.",
   "bin": {
-    "aarogya-ui": "./bin/index.js"
+    "aarogya-ui": "bin/index.js"
   },
   "files": [
     "bin"
@@ -23,7 +23,7 @@
   "homepage": "https://github.com/aarogyaojha/component-library#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aarogyaojha/component-library.git"
+    "url": "git+https://github.com/aarogyaojha/component-library.git"
   },
   "bugs": {
     "url": "https://github.com/aarogyaojha/component-library/issues"
