@@ -19,6 +19,8 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 import { Box, Code, Layers, Layout, MessageSquare, Palette, Play, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -28,8 +30,28 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground px-6 py-12 md:px-12 lg:px-24">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+      <header className="sticky top-0 z-50 w-full border-b border-ui-border/20 bg-background/80 backdrop-blur-md">
+        <div className="container mx-auto flex h-16 items-center justify-between px-6 md:px-12 lg:px-24">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="bg-primary p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+              <Palette className="w-5 h-5 text-white" />
+            </div>
+            <span className="font-bold text-lg tracking-tight">Aarogya</span>
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/docs" className="text-sm font-semibold hover:text-primary transition-colors">Documentation</Link>
+            <ThemeToggle />
+          </div>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-6 py-12 md:px-12 lg:px-24 relative overflow-hidden">
+        {/* Decorative blobs for dark mode bg enhancement */}
+        <div className="absolute top-[5%] -left-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[20%] -right-[10%] w-[35%] h-[35%] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+        {/* Hero Section */}
       <section className="max-w-4xl mb-24 animate-fade-in">
         <div className="flex items-center gap-3 mb-6">
           <div className="bg-primary/10 p-2 rounded-2xl">
@@ -253,69 +275,70 @@ export default function Home() {
                     <TableCell><Skeleton className="h-4 w-24" /></TableCell>
                     <TableCell className="text-right font-mono font-bold">$1,299.00</TableCell>
                   </TableRow>
-                  <TableRow>
-                    <TableCell className="font-bold flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 text-xs">JM</div>
-                      Jane Miller
-                    </TableCell>
-                    <TableCell><Badge variant="gold">Pending</Badge></TableCell>
-                    <TableCell><Skeleton className="h-4 w-32" /></TableCell>
-                    <TableCell className="text-right font-mono font-bold">$3,450.00</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-bold flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive text-xs">RK</div>
-                      Ryan King
-                    </TableCell>
-                    <TableCell><Badge variant="destructive">Suspended</Badge></TableCell>
-                    <TableCell><div className="flex items-center gap-2"><Spinner size="sm" /> <span className="text-xs opacity-50">Syncing...</span></div></TableCell>
-                    <TableCell className="text-right font-mono font-bold font-bold">$0.00</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </div>
-          </section>
-        </div>
-      </div>
+          <TableRow>
+            <TableCell className="font-bold flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-warning/10 flex items-center justify-center text-warning-text text-xs">JM</div>
+              Jane Miller
+            </TableCell>
+            <TableCell><Badge variant="gold">Pending</Badge></TableCell>
+            <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+            <TableCell className="text-right font-mono font-bold">$3,450.00</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className="font-bold flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive-text text-xs">RK</div>
+              Ryan King
+            </TableCell>
+            <TableCell><Badge variant="destructive">Suspended</Badge></TableCell>
+            <TableCell><div className="flex items-center gap-2"><Spinner size="sm" /> <span className="text-xs opacity-50">Syncing...</span></div></TableCell>
+            <TableCell className="text-right font-mono font-bold font-bold">$0.00</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </div>
+  </section>
+</div>
+</div>
 
-      <footer className="mt-32 pt-12 border-t border-ui-border/30 text-center text-muted-foreground text-sm opacity-60">
-        <p>© 2026 Aarogya Labs. Built for performance, designed for excellence.</p>
-      </footer>
-    </main>
-  );
+<footer className="mt-32 pt-12 border-t border-ui-border/30 text-center text-muted-foreground text-sm opacity-60">
+<p>© 2026 Aarogya . Built for performance, designed for excellence.</p>
+</footer>
+</main>
+</div>
+);
 }
 
 // Internal Helper Components for the Showcase
 function SectionHeader({ title, description, icon }: { title: string; description: string; icon: React.ReactNode }) {
-  return (
-    <div className="flex flex-col gap-4 border-l-4 border-primary pl-6 py-2">
-      <div className="flex items-center gap-3">
-        {icon && <div className="text-primary opacity-60 scale-125">{icon}</div>}
-        <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
-      </div>
-      <p className="text-muted-foreground opacity-70 max-w-2xl text-lg font-medium leading-relaxed">
-        {description}
-      </p>
-    </div>
-  );
+return (
+<div className="flex flex-col gap-4 border-l-4 border-primary pl-6 py-2">
+<div className="flex items-center gap-3">
+{icon && <div className="text-primary opacity-60 scale-125">{icon}</div>}
+<h2 className="text-3xl font-bold tracking-tight">{title}</h2>
+</div>
+<p className="text-muted-foreground opacity-70 max-w-2xl text-lg font-medium leading-relaxed">
+{description}
+</p>
+</div>
+);
 }
 
 function StatCard({ title, value, change }: { title: string; value: string; change: string }) {
-  const isPositive = change.startsWith("+");
-  return (
-    <Card className="hover:animate-pulse-subtle cursor-default">
-      <CardContent className="pt-6">
-        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground opacity-70 mb-2">{title}</p>
-        <div className="flex items-end justify-between">
-          <h4 className="text-3xl font-bold text-foreground">{value}</h4>
-          <span className={cn(
-            "text-xs font-bold px-2 py-0.5 rounded-full",
-            isPositive ? "bg-emerald-500/10 text-emerald-600" : "bg-destructive/10 text-destructive"
-          )}>
-            {change}
-          </span>
-        </div>
-      </CardContent>
-    </Card>
-  );
+const isPositive = change.startsWith("+");
+return (
+<Card className="hover:animate-pulse-subtle cursor-default">
+<CardContent className="pt-6">
+<p className="text-xs font-bold uppercase tracking-widest text-muted-foreground opacity-70 mb-2">{title}</p>
+<div className="flex items-end justify-between">
+  <h4 className="text-3xl font-bold text-foreground">{value}</h4>
+  <span className={cn(
+    "text-xs font-bold px-2 py-0.5 rounded-full",
+    isPositive ? "bg-success/10 text-success-text" : "bg-destructive/10 text-destructive-text"
+  )}>
+    {change}
+  </span>
+</div>
+</CardContent>
+</Card>
+);
 }

@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
 import { Card, CardContent } from "@/components/layout/card";
 import { Terminal, Box, Zap, Share2 } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function ButtonDocs() {
   return (
@@ -40,43 +41,44 @@ export default function ButtonDocs() {
           <TabsContent value="usage" className="space-y-12">
             {/* Variants showcase */}
             <section className="space-y-4">
-              <h3 className="text-xl font-bold">Base Styles</h3>
-              <p className="text-muted-foreground">Standardized variants for various application contexts.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-wrap gap-4 justify-center">
+              <h3 className="text-xl font-bold">Standard Buttons</h3>
+              <p className="text-muted-foreground">Our core button variants for everyday actions.</p>
+              <ComponentPreview name="Base Variants">
+                <div className="flex flex-wrap items-center justify-center gap-4">
                   <Button variant="primary">Primary</Button>
                   <Button variant="secondary">Secondary</Button>
                   <Button variant="outline">Outline</Button>
-                  <Button variant="soft">Soft Variant</Button>
-                  <Button variant="ghost">Ghost Button</Button>
-                </CardContent>
-              </Card>
+                  <Button variant="ghost">Ghost</Button>
+                  <Button variant="soft">Soft</Button>
+                </div>
+              </ComponentPreview>
             </section>
 
             {/* Sizes showcase */}
             <section className="space-y-4">
-              <h3 className="text-xl font-bold">Sizes</h3>
-              <p className="text-muted-foreground">Multiple sizes to fit into different UI containers.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-wrap items-center gap-6 justify-center">
-                  <Button size="xs" variant="primary">Extra Small</Button>
-                  <Button size="sm" variant="primary">Small</Button>
-                  <Button size="default" variant="primary">Default</Button>
-                  <Button size="lg" variant="primary">Large Size</Button>
-                </CardContent>
-              </Card>
+              <h3 className="text-xl font-bold">Sizes & States</h3>
+              <p className="text-muted-foreground">Adjust dimensions and feedback for specific contexts.</p>
+              <ComponentPreview name="Sizing & Loading">
+                <div className="flex flex-wrap items-center justify-center gap-6">
+                  <Button size="sm">Small</Button>
+                  <Button size="default">Default</Button>
+                  <Button size="lg">Large</Button>
+                  <Button isLoading variant="secondary">Processing</Button>
+                </div>
+              </ComponentPreview>
             </section>
             
             {/* Features showcase */}
             <section className="space-y-4">
-              <h3 className="text-xl font-bold">Loading States</h3>
-              <p className="text-muted-foreground">Built-in loading indicators for async operations.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-wrap gap-4 justify-center">
-                  <Button isLoading variant="primary">Loading State</Button>
+              <h3 className="text-xl font-bold">Icon Buttons</h3>
+              <p className="text-muted-foreground">Standardized icon behaviors and square variants.</p>
+              <ComponentPreview name="Buttons with Icons">
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <Button variant="primary" className="gap-2"><Zap className="w-4 h-4" /> Power Up</Button>
                   <Button variant="outline" size="icon"><Share2 className="w-4 h-4" /></Button>
-                </CardContent>
-              </Card>
+                  <Button variant="soft" size="sm" className="gap-2">Download <Box className="w-3.5 h-3.5" /></Button>
+                </div>
+              </ComponentPreview>
             </section>
           </TabsContent>
 

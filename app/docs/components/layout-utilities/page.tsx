@@ -1,10 +1,10 @@
 "use client";
 
-import { Container, Grid, Divider } from "@/components/layout";
+import { Grid, Divider } from "@/components/layout";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
-import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Layout as LayoutIcon } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function LayoutUtilitiesDocs() {
   return (
@@ -31,43 +31,26 @@ export default function LayoutUtilitiesDocs() {
             <section className="space-y-4">
                <h3 className="text-xl font-bold">Responsive Grid</h3>
                <p className="text-muted-foreground">Standardized 12-column logic with responsive breakpoints.</p>
-               <Card className="border-ui-border/30 bg-card/50">
-                  <CardContent className="pt-6">
-                    <Grid cols={3} className="gap-4">
-                      <div className="h-20 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center font-bold text-primary">Item 1</div>
-                      <div className="h-20 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center font-bold text-primary">Item 2</div>
-                      <div className="h-20 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center font-bold text-primary">Item 3</div>
-                    </Grid>
-                  </CardContent>
-               </Card>
+               <ComponentPreview name="Grid Columns">
+                  <Grid cols={3} className="gap-4 w-full">
+                    <div className="h-20 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center font-bold text-primary">Item 1</div>
+                    <div className="h-20 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center font-bold text-primary">Item 2</div>
+                    <div className="h-20 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center font-bold text-primary">Item 3</div>
+                  </Grid>
+               </ComponentPreview>
             </section>
 
              <section className="space-y-4">
                <h3 className="text-xl font-bold">Divider</h3>
                <p className="text-muted-foreground">Standardized separators for content grouping.</p>
-               <Card className="border-ui-border/30 bg-card/50">
-                  <CardContent className="pt-6 pb-6">
-                    <p className="text-sm opacity-60">Section Above</p>
+               <ComponentPreview name="Separators">
+                  <div className="w-full max-w-sm space-y-4 py-8">
+                    <p className="text-sm font-bold opacity-60 px-4">Workspace A</p>
                     <Divider className="opacity-40" />
-                    <p className="text-sm opacity-60">Section Below</p>
-                  </CardContent>
-               </Card>
+                    <p className="text-sm font-bold opacity-60 px-4">Workspace B</p>
+                  </div>
+               </ComponentPreview>
             </section>
-          </TabsContent>
-
-          <TabsContent value="props" id="props">
-            <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
-               <table className="w-full text-left text-sm">
-                <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
-                  <tr><th className="px-6 py-4">Utility</th><th className="px-6 py-4">Prop</th><th className="px-6 py-4">Description/Values</th></tr>
-                </thead>
-                <tbody className="divide-y divide-ui-border/20">
-                  <tr><td className="px-6 py-4 font-bold text-primary">Grid</td><td className="px-6 py-4 font-mono text-xs">cols</td><td className="px-6 py-4 text-muted-foreground">1 to 6. Controls breakpoints.</td></tr>
-                  <tr><td className="px-6 py-4 font-bold text-primary">Divider</td><td className="px-6 py-4 font-mono text-xs">orientation</td><td className="px-6 py-4 text-muted-foreground">"horizontal", "vertical"</td></tr>
-                   <tr><td className="px-6 py-4 font-bold text-primary">Container</td><td className="px-6 py-4">-</td><td className="px-6 py-4 text-muted-foreground">Max-width 7xl with side padding.</td></tr>
-                </tbody>
-              </table>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
@@ -75,11 +58,11 @@ export default function LayoutUtilitiesDocs() {
       <section id="quick-start" className="mt-20 pt-12 border-t border-ui-border/20">
         <div className="flex items-center gap-2 mb-6">
           <Terminal className="w-4 h-4 text-primary" />
-          <h3 className="text-lg font-bold">Standard Logic</h3>
+          <h3 className="text-lg font-bold">Standard Usage</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
           <p className="text-emerald-400"># Import</p>
-          <p>import &#123; Container, Grid, Divider &#125; from "@/components/layout";</p>
+          <pre><code>import &#123; Grid, Divider &#125; from "@/components/layout";</code></pre>
         </div>
       </section>
     </div>

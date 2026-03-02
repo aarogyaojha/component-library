@@ -1,0 +1,42 @@
+{
+  "name": "aarogya-ui",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "CLI for initializing and adding Aarogya UI components — a premium React + Tailwind v4 component library.",
+  "bin": {
+    "aarogya-ui": "./bin/index.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "components",
+    "cli",
+    "ui",
+    "design-system",
+    "radix-ui"
+  ],
+  "author": "Aarogya Ojha <aarogyaojha@example.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/aarogyaojha/component-library#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aarogyaojha/component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aarogyaojha/component-library/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "execa": "^9.3.0",
+    "fs-extra": "^11.2.0",
+    "ora": "^8.0.1",
+    "prompts": "^2.4.2"
+  }
+}

@@ -3,8 +3,8 @@
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectGroup, SelectLabel } from "@/components/forms/select";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
-import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Share2 } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function SelectDocs() {
   return (
@@ -31,72 +31,63 @@ export default function SelectDocs() {
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Standard Dropdown</h3>
               <p className="text-muted-foreground">The typical usage for selecting a single variant from many.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center">
-                  <div className="w-full max-w-xs space-y-2">
-                    <label className="text-sm font-bold opacity-70">Project Framework</label>
-                    <Select defaultValue="nextjs">
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select framework..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectGroup>
-                          <SelectLabel>React Ecosystem</SelectLabel>
-                          <SelectItem value="nextjs">Next.js</SelectItem>
-                          <SelectItem value="remix">Remix</SelectItem>
-                          <SelectItem value="vite">Vite + React</SelectItem>
-                        </SelectGroup>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </CardContent>
-              </Card>
+              <ComponentPreview name="Base Select">
+                <div className="w-full max-w-xs space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest opacity-50 ml-1">Project Framework</label>
+                  <Select defaultValue="nextjs">
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select framework..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>React Ecosystem</SelectLabel>
+                        <SelectItem value="nextjs">Next.js</SelectItem>
+                        <SelectItem value="remix">Remix</SelectItem>
+                        <SelectItem value="vite">Vite + React</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </ComponentPreview>
             </section>
             
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Grouped Selections</h3>
               <p className="text-muted-foreground">Categorize your items for better UX.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center">
-                  <div className="w-full max-w-sm">
-                    <Select>
-                      <SelectTrigger><SelectValue placeholder="Choose a language..." /></SelectTrigger>
-                      <SelectContent>
-                        <SelectGroup>
-                          <SelectLabel>Frontend</SelectLabel>
-                          <SelectItem value="ts">TypeScript</SelectItem>
-                          <SelectItem value="js">JavaScript</SelectItem>
-                        </SelectGroup>
-                        <SelectGroup>
-                          <SelectLabel>Backend</SelectLabel>
-                          <SelectItem value="go">Go (Golang)</SelectItem>
-                          <SelectItem value="rust">Rust</SelectItem>
-                        </SelectGroup>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </CardContent>
-              </Card>
+              <ComponentPreview name="Categorized Options">
+                <div className="w-full max-w-xs">
+                  <Select>
+                    <SelectTrigger><SelectValue placeholder="Choose a language..." /></SelectTrigger>
+                    <SelectContent className="max-h-[300px]">
+                      <SelectGroup>
+                        <SelectLabel>Frontend</SelectLabel>
+                        <SelectItem value="ts">TypeScript</SelectItem>
+                        <SelectItem value="js">JavaScript</SelectItem>
+                      </SelectGroup>
+                      <SelectGroup>
+                        <SelectLabel>Backend</SelectLabel>
+                        <SelectItem value="go">Go (Golang)</SelectItem>
+                        <SelectItem value="rust">Rust</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </ComponentPreview>
             </section>
           </TabsContent>
 
           <TabsContent value="props" id="props">
-             <div className="space-y-4">
-              <p className="text-muted-foreground">Composed of several sub-components for layout control.</p>
-              <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
-                <table className="w-full text-left text-sm">
-                  <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
-                    <tr><th className="px-6 py-4">Component</th><th className="px-6 py-4">Role</th></tr>
-                  </thead>
-                  <tbody className="divide-y divide-ui-border/20">
-                    <tr><td className="px-6 py-4 font-bold text-primary">Select</td><td className="px-6 py-4">The main container.</td></tr>
-                    <tr><td className="px-6 py-4 font-bold text-primary">SelectTrigger</td><td className="px-6 py-4">The interactive button.</td></tr>
-                    <tr><td className="px-6 py-4 font-bold text-primary">SelectValue</td><td className="px-6 py-4">Placeholder for the selection.</td></tr>
-                    <tr><td className="px-6 py-4 font-bold text-primary">SelectContent</td><td className="px-6 py-4">The actual dropdown box.</td></tr>
-                    <tr><td className="px-6 py-4 font-bold text-primary">SelectItem</td><td className="px-6 py-4">Individual selectable item.</td></tr>
-                  </tbody>
-                </table>
-              </div>
+            <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
+                  <tr><th className="px-6 py-4">Component</th><th className="px-6 py-4">Role</th></tr>
+                </thead>
+                <tbody className="divide-y divide-ui-border/20">
+                  <tr><td className="px-6 py-4 font-bold text-primary">Select</td><td className="px-6 py-4">The main container.</td></tr>
+                  <tr><td className="px-6 py-4 font-bold text-primary">SelectTrigger</td><td className="px-6 py-4">The interactive button.</td></tr>
+                  <tr><td className="px-6 py-4 font-bold text-primary">SelectContent</td><td className="px-6 py-4">The actual dropdown box.</td></tr>
+                </tbody>
+              </table>
             </div>
           </TabsContent>
         </Tabs>
@@ -108,8 +99,8 @@ export default function SelectDocs() {
           <h3 className="text-lg font-bold">Standard Usage</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
-          <p className="text-emerald-400"># Import</p>
-          <p>import &#123; Select, SelectTrigger, SelectValue, SelectContent, SelectItem &#125; from "@/components/forms/select";</p>
+          <p className="text-emerald-400"># Usage</p>
+          <pre><code>import &#123; Select, SelectItem &#125; from "@/components/forms/select";</code></pre>
         </div>
       </section>
     </div>

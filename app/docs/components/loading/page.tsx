@@ -4,8 +4,8 @@ import { Spinner } from "@/components/feedback/spinner";
 import { Skeleton } from "@/components/feedback/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
-import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Zap } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function LoadingDocs() {
   return (
@@ -32,8 +32,8 @@ export default function LoadingDocs() {
              <section className="space-y-4">
               <h3 className="text-xl font-bold">Spinners</h3>
               <p className="text-muted-foreground">The primary indicator for quick background tasks.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-wrap gap-12 justify-center items-center">
+              <ComponentPreview name="Sizes">
+                <div className="flex flex-wrap gap-12 justify-center items-center">
                   <div className="text-center space-y-2">
                     <Spinner size="sm" />
                     <p className="text-[10px] font-bold opacity-50 uppercase">Small</p>
@@ -46,52 +46,35 @@ export default function LoadingDocs() {
                     <Spinner size="lg" />
                     <p className="text-[10px] font-bold opacity-50 uppercase">Large</p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </ComponentPreview>
             </section>
 
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Skeletons</h3>
               <p className="text-muted-foreground">Placeholder content for layouts while fetching data.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center">
-                  <div className="w-full max-w-sm flex items-center gap-4 p-6 bg-background rounded-2xl border border-ui-border/20">
-                    <Skeleton className="h-12 w-12 rounded-full" />
-                    <div className="space-y-2 flex-1">
-                      <Skeleton className="h-4 w-[250px]" />
-                      <Skeleton className="h-4 w-[200px]" />
-                    </div>
+              <ComponentPreview name="Skeleton Pattern">
+                <div className="w-full max-w-sm flex items-center gap-4 p-8 bg-card rounded-3xl border border-ui-border/10 shadow-soft">
+                  <Skeleton className="h-12 w-12 rounded-full" />
+                  <div className="space-y-3 flex-1">
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-2/3 opacity-50" />
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </ComponentPreview>
             </section>
-          </TabsContent>
-
-          <TabsContent value="props" id="props">
-            <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
-               <table className="w-full text-left text-sm">
-                <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
-                  <tr><th className="px-6 py-4">Component</th><th className="px-6 py-4">Prop</th><th className="px-6 py-4">Values</th></tr>
-                </thead>
-                <tbody className="divide-y divide-ui-border/20">
-                  <tr><td className="px-6 py-4 font-bold text-primary">Spinner</td><td className="px-6 py-4 font-mono text-xs">size</td><td className="px-6 py-4 text-muted-foreground">"sm", "md", "lg"</td></tr>
-                  <tr><td className="px-6 py-4 font-bold text-primary">Skeleton</td><td className="px-6 py-4">-</td><td className="px-6 py-4 text-muted-foreground">Uses CSS classes for dimensions.</td></tr>
-                </tbody>
-              </table>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
 
-      <section id="quick-start" className="mt-20 pt-12 border-t border-ui-border/20">
+      <section id="quick-start" className="mt-20 pt-12 border-t border-ui-border/20 border-slate-200 dark:border-slate-800">
         <div className="flex items-center gap-2 mb-6">
           <Terminal className="w-4 h-4 text-primary" />
           <h3 className="text-lg font-bold">Standard Usage</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
           <p className="text-emerald-400"># Import</p>
-          <p>import &#123; Spinner &#125; from "@/components/feedback/spinner";</p>
-          <p>import &#123; Skeleton &#125; from "@/components/feedback/skeleton";</p>
+          <pre><code>import &#123; Spinner, Skeleton &#125; from "@/components/feedback";</code></pre>
         </div>
       </section>
     </div>

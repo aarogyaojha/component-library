@@ -3,8 +3,8 @@
 import { Textarea } from "@/components/forms/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
-import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Code } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function TextareaDocs() {
   return (
@@ -31,37 +31,27 @@ export default function TextareaDocs() {
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Standard Text Area</h3>
               <p className="text-muted-foreground">The most common usage for longer text-based data.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center">
-                  <Textarea label="Project Description" placeholder="Describe your project here..." className="max-w-md" />
-                </CardContent>
-              </Card>
+              <ComponentPreview name="Base Input">
+                <Textarea 
+                  label="Project Description" 
+                  placeholder="Describe your project here..." 
+                  className="w-full max-w-md" 
+                />
+              </ComponentPreview>
             </section>
 
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Validation States</h3>
               <p className="text-muted-foreground">Provide clear feedback on user errors.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center">
-                  <Textarea label="Bio" placeholder="Tell us about yourself..." error="Must be under 150 characters." className="max-w-md" />
-                </CardContent>
-              </Card>
+              <ComponentPreview name="Error States">
+                <Textarea 
+                  label="Bio" 
+                  placeholder="Tell us about yourself..." 
+                  error="Must be under 150 characters." 
+                  className="w-full max-w-md" 
+                />
+              </ComponentPreview>
             </section>
-          </TabsContent>
-
-          <TabsContent value="props" id="props">
-            <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
-              <table className="w-full text-left text-sm">
-                <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
-                  <tr><th className="px-6 py-4">Prop</th><th className="px-6 py-4">Type</th><th className="px-6 py-4">Description</th></tr>
-                </thead>
-                <tbody className="divide-y divide-ui-border/20">
-                  <tr><td className="px-6 py-4 font-mono font-bold text-primary">label</td><td className="px-6 py-4 text-xs">string</td><td className="px-6 py-4 text-muted-foreground">Optional label for the textarea.</td></tr>
-                  <tr><td className="px-6 py-4 font-mono font-bold text-primary">description</td><td className="px-6 py-4 text-xs">string</td><td className="px-6 py-4 text-muted-foreground">Helpful context text below.</td></tr>
-                  <tr><td className="px-6 py-4 font-mono font-bold text-primary">error</td><td className="px-6 py-4 text-xs">string</td><td className="px-6 py-4 text-muted-foreground">Validation error message.</td></tr>
-                </tbody>
-              </table>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
@@ -72,8 +62,8 @@ export default function TextareaDocs() {
           <h3 className="text-lg font-bold">Standard Usage</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
-          <p className="text-emerald-400"># Import</p>
-          <p>import &#123; Textarea &#125; from "@/components/forms/textarea";</p>
+          <p className="text-emerald-400"># Usage</p>
+          <pre><code>&lt;Textarea label="Message" /&gt;</code></pre>
         </div>
       </section>
     </div>

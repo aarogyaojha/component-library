@@ -3,8 +3,8 @@
 import { RadioGroup, RadioGroupItem } from "@/components/forms/radio-group";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
-import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Zap } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function RadioGroupDocs() {
   return (
@@ -31,18 +31,16 @@ export default function RadioGroupDocs() {
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Standard Options</h3>
               <p className="text-muted-foreground">The typical usage for selecting a single variant.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center">
-                   <div className="w-full max-w-xs p-6 bg-background border border-ui-border/20 rounded-2xl shadow-soft">
-                    <h4 className="font-bold text-sm mb-4">Choose Pricing Plan</h4>
-                    <RadioGroup defaultValue="pro">
-                      <RadioGroupItem value="basic" label="Basic Access" description="Standard features for individuals." />
-                      <RadioGroupItem value="pro" label="Professional" description="Advanced tools for growing teams." />
-                      <RadioGroupItem value="enterprise" label="Enterprise" description="Custom solutions for large corps." />
-                    </RadioGroup>
-                  </div>
-                </CardContent>
-              </Card>
+              <ComponentPreview name="Base Radio Group">
+                <div className="w-full max-w-xs p-6 bg-card border border-ui-border/10 rounded-3xl">
+                  <h4 className="font-bold text-sm mb-6 ml-1">Choose Pricing Plan</h4>
+                  <RadioGroup defaultValue="pro">
+                    <RadioGroupItem value="basic" label="Basic Access" description="Standard features for individuals." />
+                    <RadioGroupItem value="pro" label="Professional" description="Advanced tools for growing teams." />
+                    <RadioGroupItem value="enterprise" label="Enterprise" description="Custom solutions for large corps." />
+                  </RadioGroup>
+                </div>
+              </ComponentPreview>
             </section>
           </TabsContent>
 
@@ -69,8 +67,8 @@ export default function RadioGroupDocs() {
           <h3 className="text-lg font-bold">Standard Usage</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
-          <p className="text-emerald-400"># Import</p>
-          <p>import &#123; RadioGroup, RadioGroupItem &#125; from "@/components/forms/radio-group";</p>
+          <p className="text-emerald-400"># Usage</p>
+          <pre><code>&lt;RadioGroupItem label="Option" value="opt" /&gt;</code></pre>
         </div>
       </section>
     </div>

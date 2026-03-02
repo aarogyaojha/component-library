@@ -3,7 +3,8 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Layout as LayoutIcon } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function TabsDocs() {
   return (
@@ -29,50 +30,32 @@ export default function TabsDocs() {
           <TabsContent value="usage" className="space-y-12">
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Standard Tabs List</h3>
-              <p className="text-muted-foreground">The typical usage for switching between content panels.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center">
-                  <Tabs defaultValue="account" className="w-[400px]">
-                    <TabsList className="grid w-full grid-cols-2">
-                      <TabsTrigger value="account">Account</TabsTrigger>
-                      <TabsTrigger value="password">Password</TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="account">
-                      <Card className="shadow-premium border-ui-border/20">
-                         <CardContent className="pt-6 space-y-2">
-                            <h4 className="font-bold">Account Settings</h4>
-                            <p className="text-sm opacity-70">Manage your profile details and preferences.</p>
-                         </CardContent>
-                      </Card>
-                    </TabsContent>
-                    <TabsContent value="password">
-                      <Card className="shadow-premium border-ui-border/20">
-                         <CardContent className="pt-6 space-y-2">
-                            <h4 className="font-bold">Change Password</h4>
-                            <p className="text-sm opacity-70">Update your security credentials.</p>
-                         </CardContent>
-                      </Card>
-                    </TabsContent>
-                  </Tabs>
-                </CardContent>
-              </Card>
+              <p className="text-muted-foreground">Switch between content panels seamlessly.</p>
+              <ComponentPreview name="Tab Interaction">
+                <Tabs defaultValue="account" className="w-full max-w-sm">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="account">Account</TabsTrigger>
+                    <TabsTrigger value="password">Password</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="account">
+                    <Card className="shadow-premium border-ui-border/10 bg-card">
+                      <CardContent className="pt-8 pb-8 space-y-2">
+                        <h4 className="font-bold text-base">Account Profile</h4>
+                        <p className="text-sm opacity-70">Manage your verified details and security preferences.</p>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                  <TabsContent value="password">
+                    <Card className="shadow-premium border-ui-border/10 bg-card">
+                      <CardContent className="pt-8 pb-8 space-y-2">
+                        <h4 className="font-bold text-base">Security Hub</h4>
+                        <p className="text-sm opacity-70">Update your credentials or enable two-factor auth.</p>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                </Tabs>
+              </ComponentPreview>
             </section>
-          </TabsContent>
-
-          <TabsContent value="props" id="props">
-            <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
-              <table className="w-full text-left text-sm">
-                <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
-                  <tr><th className="px-6 py-4">Component</th><th className="px-6 py-4">Role</th></tr>
-                </thead>
-                <tbody className="divide-y divide-ui-border/20">
-                  <tr><td className="px-6 py-4 font-bold text-primary">Tabs</td><td className="px-6 py-4">The root container.</td></tr>
-                  <tr><td className="px-6 py-4 font-bold text-primary">TabsList</td><td className="px-6 py-4">The list of tab triggers.</td></tr>
-                  <tr><td className="px-6 py-4 font-bold text-primary">TabsTrigger</td><td className="px-6 py-4">Individual tab button.</td></tr>
-                  <tr><td className="px-6 py-4 font-bold text-primary">TabsContent</td><td className="px-6 py-4">The panel that shows when active.</td></tr>
-                </tbody>
-              </table>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
@@ -83,8 +66,8 @@ export default function TabsDocs() {
           <h3 className="text-lg font-bold">Standard Usage</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
-          <p className="text-emerald-400"># Import</p>
-          <p>import &#123; Tabs, TabsList, TabsTrigger, TabsContent &#125; from "@/components/navigation/tabs";</p>
+          <p className="text-emerald-400"># Usage</p>
+          <pre><code>import &#123; Tabs, TabsList, TabsTrigger, TabsContent &#125; from "@/components/navigation/tabs";</code></pre>
         </div>
       </section>
     </div>

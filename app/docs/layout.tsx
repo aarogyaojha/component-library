@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Box, ChevronRight, Hash, Layers, Layout as LayoutIcon, MessageSquare, Palette, Search, Share2, Zap, Code } from "lucide-react";
 import { Input } from "@/components/forms/input";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const sidebarNav = [
   {
@@ -15,6 +16,7 @@ const sidebarNav = [
       { title: "Introduction", href: "/docs" },
       { title: "Installation", href: "/docs/installation" },
       { title: "Theming", href: "/docs/theming" },
+      { title: "Storybook", href: "/docs/storybook" },
     ],
   },
   {
@@ -74,21 +76,22 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
   const isComponentPage = pathname.startsWith("/docs/components/");
   const isInstallationPage = pathname === "/docs/installation";
   const isThemingPage = pathname === "/docs/theming";
+  const isStorybookPage = pathname === "/docs/storybook";
   const isIntroPage = pathname === "/docs";
 
   let onThisPageLinks = [
     { id: 'introduction', label: 'Introduction' },
     { 
       id: 'usage', 
-      label: isComponentPage ? 'Usage' : isInstallationPage ? 'Installation' : isIntroPage ? 'Philosophy' : 'Customization' 
+      label: isComponentPage ? 'Usage' : isInstallationPage ? 'Installation' : isIntroPage ? 'Philosophy' : isStorybookPage ? 'Why Storybook?' : 'Customization' 
     },
     { 
       id: 'props', 
-      label: isComponentPage ? 'API Reference' : isInstallationPage ? 'Tailwind Setup' : isIntroPage ? 'Ecosystem' : 'Design Tokens' 
+      label: isComponentPage ? 'API Reference' : isInstallationPage ? 'Tailwind Setup' : isIntroPage ? 'Ecosystem' : isStorybookPage ? 'Available Commands' : 'Design Tokens' 
     },
     { 
       id: 'quick-start', 
-      label: isComponentPage ? 'Quick Start' : isInstallationPage ? 'Verification' : isIntroPage ? 'Getting Started' : 'Themes' 
+      label: isComponentPage ? 'Quick Start' : isInstallationPage ? 'Verification' : isIntroPage ? 'Getting Started' : isStorybookPage ? 'Creating Stories' : 'Themes' 
     },
   ];
 
@@ -122,10 +125,11 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input 
                 placeholder="Search documentation..." 
-                className="w-full h-9 pl-10 pr-4 rounded-xl border border-ui-border bg-card/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all text-foreground placeholder:text-muted-foreground/50"
+                className="w-full h-9 pl-10 pr-4 rounded-xl border border-ui-border bg-card/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all text-foreground placeholder:text-muted-foreground/50 dark:bg-card/30 dark:border-ui-border/50"
               />
             </div>
-            <button className="bg-primary text-white px-4 py-1.5 rounded-xl text-sm font-bold shadow-premium hover:shadow-lg hover:scale-105 active:scale-95 transition-all">
+            <ThemeToggle />
+            <button className="bg-primary text-white px-4 py-1.5 rounded-xl text-sm font-bold shadow-premium hover:shadow-lg hover:scale-105 active:scale-95 transition-all outline-none border-none">
               New Project
             </button>
           </div>
@@ -261,7 +265,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
                 </ul>
               </div>
               
-              <div className="mt-12 bg-white/50 border border-ui-border/20 rounded-3xl p-6 shadow-soft backdrop-blur-sm">
+              <div className="mt-12 bg-card/50 border border-ui-border/20 rounded-3xl p-6 shadow-soft backdrop-blur-sm">
                 <div className="bg-primary/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
                   <Zap className="w-5 h-5 text-primary" />
                 </div>
@@ -269,7 +273,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
                 <p className="text-xs text-muted-foreground leading-relaxed mb-5">
                   Get direct access to core maintainers for your enterprise projects.
                 </p>
-                <button className="w-full bg-slate-900 text-white text-[11px] font-bold py-2.5 rounded-xl shadow-premium hover:shadow-lg hover:bg-slate-800 hover:-translate-y-0.5 transition-all">
+                <button className="w-full bg-slate-900 dark:bg-slate-100 dark:text-slate-900 text-white text-[11px] font-bold py-2.5 rounded-xl shadow-premium hover:shadow-lg hover:bg-slate-800 transition-all">
                   Contact Sales
                 </button>
               </div>

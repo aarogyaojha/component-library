@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
 import { Card, CardContent } from "@/components/layout/card";
 import { Terminal, Hash } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function BadgeDocs() {
   return (
@@ -39,29 +40,29 @@ export default function BadgeDocs() {
           <TabsContent value="usage" className="space-y-12">
             {/* Example 1: Basic Variants */}
             <section className="space-y-4">
-              <h3 className="text-xl font-bold">Base Variants</h3>
-              <p className="text-muted-foreground">The primary styles for categorization and feedback.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-wrap gap-4 justify-center">
-                  <Badge variant="default">Default</Badge>
+              <h3 className="text-xl font-bold">Standard Badges</h3>
+              <p className="text-muted-foreground">High contrast badges for emphasizing status.</p>
+              <ComponentPreview name="Base Styles">
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                  <Badge>Default</Badge>
                   <Badge variant="secondary">Secondary</Badge>
                   <Badge variant="destructive">Destructive</Badge>
                   <Badge variant="outline">Outline</Badge>
-                </CardContent>
-              </Card>
+                </div>
+              </ComponentPreview>
             </section>
 
             {/* Example 2: Premium Variants */}
             <section className="space-y-4">
-              <h3 className="text-xl font-bold">Soft & Premium</h3>
-              <p className="text-muted-foreground">Specially designed variants for a modern, high-end feel.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-wrap gap-4 justify-center">
-                  <Badge variant="soft">Soft Variant</Badge>
-                  <Badge variant="success">Success</Badge>
-                  <Badge variant="gold">Premium Gold</Badge>
-                </CardContent>
-              </Card>
+              <h3 className="text-xl font-bold">Soft Varieties</h3>
+              <p className="text-muted-foreground">Low contrast, colorful variants for subtle visual grouping.</p>
+              <ComponentPreview name="Modern Soft Styles">
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                  <Badge variant="soft">Aarogya Soft</Badge>
+                  <Badge variant="success">Productive</Badge>
+                  <Badge variant="gold">Premium</Badge>
+                </div>
+              </ComponentPreview>
             </section>
           </TabsContent>
 

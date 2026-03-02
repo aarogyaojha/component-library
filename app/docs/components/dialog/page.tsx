@@ -1,23 +1,23 @@
 "use client";
 
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/feedback/dialog";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/feedback/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
-import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Layout as LayoutIcon } from "lucide-react";
+import { Terminal, Share2 } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function DialogDocs() {
   return (
     <div className="space-y-10 animate-fade-in">
       <section id="introduction" className="space-y-4">
         <div className="flex items-center gap-2">
-          <Badge variant="soft">Overlay</Badge>
-          <Badge variant="outline">Interactive</Badge>
+          <Badge variant="soft">Feedback</Badge>
+          <Badge variant="outline">Overlay</Badge>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight">Dialog (Modal)</h1>
+        <h1 className="text-4xl font-bold tracking-tight">Dialog</h1>
         <p className="text-xl text-muted-foreground font-medium opacity-80 leading-relaxed">
-          The essential component for critical user actions and extra information overlays. Designed with a soft background blur.
+          Premium modal system for focused interactions. Built on Radix UI for accessibility and styled for the Aarogya-UI brand.
         </p>
       </section>
 
@@ -30,48 +30,44 @@ export default function DialogDocs() {
 
           <TabsContent value="usage" className="space-y-12">
             <section className="space-y-4">
-              <h3 className="text-xl font-bold">Standard Overlay</h3>
-              <p className="text-muted-foreground">The typical usage for confirming an action or editing details.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button variant="primary" size="lg">Edit User Profile</Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-md bg-white border border-ui-border/20 shadow-premium">
-                      <DialogHeader>
-                        <DialogTitle>Update Profile</DialogTitle>
-                        <DialogDescription>
-                          Make changes to your profile details here. Click save when you're done.
-                        </DialogDescription>
-                      </DialogHeader>
-                      <div className="grid gap-4 py-4">
-                        <p className="text-sm opacity-60 italic">Profile editor content would go here...</p>
+              <h3 className="text-xl font-bold">Standard Modal</h3>
+              <p className="text-muted-foreground">The typical usage for a centered overlay.</p>
+              <ComponentPreview name="Modal Preview">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="outline">Open Profile Settings</Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md bg-card border border-ui-border/20 shadow-premium">
+                    <DialogHeader>
+                      <DialogTitle>Profile Settings</DialogTitle>
+                      <DialogDescription>
+                        Make changes to your profile here. Click save when you're done.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="flex items-center space-x-2 py-4">
+                      <div className="grid flex-1 gap-2">
+                        <label className="text-xs font-bold uppercase tracking-widest opacity-50">Username</label>
+                        <div className="p-3 bg-secondary/20 rounded-xl border border-ui-border/20 text-sm">
+                          aarogya_ojha
+                        </div>
                       </div>
-                      <DialogFooter>
-                        <Button type="submit" variant="primary">Save Changes</Button>
-                      </DialogFooter>
-                    </DialogContent>
-                  </Dialog>
-                </CardContent>
-              </Card>
+                    </div>
+                    <DialogFooter className="sm:justify-start">
+                      <DialogClose asChild>
+                        <Button type="button" variant="primary">
+                          Save changes
+                        </Button>
+                      </DialogClose>
+                      <DialogClose asChild>
+                        <Button type="button" variant="ghost">
+                          Cancel
+                        </Button>
+                      </DialogClose>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              </ComponentPreview>
             </section>
-          </TabsContent>
-
-          <TabsContent value="props" id="props">
-            <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
-              <table className="w-full text-left text-sm">
-                <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
-                  <tr><th className="px-6 py-4">Component</th><th className="px-6 py-4">Role</th></tr>
-                </thead>
-                <tbody className="divide-y divide-ui-border/20">
-                  <tr><td className="px-6 py-4 font-bold text-primary">Dialog</td><td className="px-6 py-4">The root container.</td></tr>
-                  <tr><td className="px-6 py-4 font-bold text-primary">DialogTrigger</td><td className="px-6 py-4">Element that opens the dialog.</td></tr>
-                  <tr><td className="px-6 py-4 font-bold text-primary">DialogContent</td><td className="px-6 py-4">The portal content area.</td></tr>
-                  <tr><td className="px-6 py-4 font-bold text-primary">DialogHeader</td><td className="px-6 py-4">Title/Description container.</td></tr>
-                </tbody>
-              </table>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
@@ -82,8 +78,8 @@ export default function DialogDocs() {
           <h3 className="text-lg font-bold">Standard Implementation</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
-          <p className="text-emerald-400"># Import</p>
-          <p>import &#123; Dialog, DialogTrigger, DialogContent &#125; from "@/components/feedback/dialog";</p>
+          <p className="text-emerald-400"># Usage</p>
+          <pre><code>import &#123; Dialog, DialogContent &#125; from "@/components/feedback/dialog";</code></pre>
         </div>
       </section>
     </div>

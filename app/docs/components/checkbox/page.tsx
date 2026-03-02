@@ -3,8 +3,8 @@
 import { Checkbox } from "@/components/forms/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
-import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Zap } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function CheckboxDocs() {
   return (
@@ -31,50 +31,30 @@ export default function CheckboxDocs() {
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Standard Selection</h3>
               <p className="text-muted-foreground">The typical usage for multi-choice selection.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center gap-6">
+              <ComponentPreview name="Base Checkboxes">
+                <div className="flex flex-col gap-6">
                   <Checkbox label="Accept terms and conditions" id="terms" />
                   <Checkbox label="Subscribe to newsletter" id="newsletter" defaultChecked />
-                </CardContent>
-              </Card>
-            </section>
-
-            <section className="space-y-4">
-              <h3 className="text-xl font-bold">Disabled States</h3>
-              <p className="text-muted-foreground">Visual feedback for inactive options.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center gap-4">
-                  <Checkbox label="Enterprise Access (Admin only)" id="enterprise" disabled />
-                  <Checkbox label="Pre-selected Option" id="pre" disabled checked />
-                </CardContent>
-              </Card>
+                </div>
+              </ComponentPreview>
             </section>
 
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Validation & Helper</h3>
               <p className="text-muted-foreground">Provide extra context or error messages.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center gap-4">
-                  <Checkbox label="Enable Notifications" description="You can change these later in settings." />
-                  <Checkbox label="I am not a robot" error="Please verify you're human." />
-                </CardContent>
-              </Card>
+              <ComponentPreview name="Contextual States">
+                <div className="flex flex-col gap-6 w-full max-w-sm">
+                  <Checkbox 
+                    label="Enable Notifications" 
+                    description="You can change these later in settings." 
+                  />
+                  <Checkbox 
+                    label="I am not a robot" 
+                    error="Please verify you're human." 
+                  />
+                </div>
+              </ComponentPreview>
             </section>
-          </TabsContent>
-
-          <TabsContent value="props" id="props">
-            <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
-              <table className="w-full text-left text-sm">
-                <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
-                  <tr><th className="px-6 py-4">Prop</th><th className="px-6 py-4">Type</th><th className="px-6 py-4">Description</th></tr>
-                </thead>
-                <tbody className="divide-y divide-ui-border/20">
-                  <tr><td className="px-6 py-4 font-mono font-bold text-primary">label</td><td className="px-6 py-4 text-xs">string</td><td className="px-6 py-4 text-muted-foreground">Text label to display next to the check.</td></tr>
-                  <tr><td className="px-6 py-4 font-mono font-bold text-primary">description</td><td className="px-6 py-4 text-xs">string</td><td className="px-6 py-4 text-muted-foreground">Optional subtext to guide users.</td></tr>
-                  <tr><td className="px-6 py-4 font-mono font-bold text-primary">error</td><td className="px-6 py-4 text-xs">string</td><td className="px-6 py-4 text-muted-foreground">Error message for validation states.</td></tr>
-                </tbody>
-              </table>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
@@ -85,8 +65,8 @@ export default function CheckboxDocs() {
           <h3 className="text-lg font-bold">Standard Usage</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
-          <p className="text-emerald-400"># Import</p>
-          <p>import &#123; Checkbox &#125; from "@/components/forms/checkbox";</p>
+          <p className="text-emerald-400"># Usage</p>
+          <pre><code>&lt;Checkbox label="Accept Terms" /&gt;</code></pre>
         </div>
       </section>
     </div>

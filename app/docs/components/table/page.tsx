@@ -3,8 +3,8 @@
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell, TableCaption } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
-import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Layers } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function TableDocs() {
   const data = [
@@ -36,55 +36,33 @@ export default function TableDocs() {
           <TabsContent value="usage" className="space-y-12">
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Standard Data Table</h3>
-              <p className="text-muted-foreground">The default layout with hover states and clean separators.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-6">
-                  <Table>
-                    <TableCaption>A list of your current subscriptions.</TableCaption>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-[100px]">ID</TableHead>
-                        <TableHead>Subscription</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead className="text-right">Price</TableHead>
+              <p className="text-muted-foreground">Detailed layout with hover states and clean separators.</p>
+              <ComponentPreview name="Data Showcase">
+                <Table>
+                  <TableCaption className="pb-4">Recent subscriptions.</TableCaption>
+                  <TableHeader className="bg-secondary/10">
+                    <TableRow>
+                      <TableHead className="w-[100px]">ID</TableHead>
+                      <TableHead>Subscription</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="text-right">Price</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {data.map((item) => (
+                      <TableRow key={item.id}>
+                        <TableCell className="font-medium">{item.id}</TableCell>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell>
+                          <Badge variant={item.status === 'Active' ? 'success' : 'soft'}>{item.status}</Badge>
+                        </TableCell>
+                        <TableCell className="text-right font-bold text-primary">{item.price}</TableCell>
                       </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {data.map((item) => (
-                        <TableRow key={item.id}>
-                          <TableCell className="font-medium">{item.id}</TableCell>
-                          <TableCell>{item.name}</TableCell>
-                          <TableCell>
-                            <Badge variant={item.status === 'Active' ? 'success' : 'soft'}>{item.status}</Badge>
-                          </TableCell>
-                          <TableCell className="text-right font-bold text-primary">{item.price}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
+                    ))}
+                  </TableBody>
+                </Table>
+              </ComponentPreview>
             </section>
-          </TabsContent>
-
-          <TabsContent value="props" id="props">
-            <div className="space-y-4">
-              <p className="text-muted-foreground">Composed of several sub-components for maximum flexibility.</p>
-              <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
-                <table className="w-full text-left text-sm">
-                  <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
-                    <tr><th className="px-6 py-4">Component</th><th className="px-6 py-4">Description</th></tr>
-                  </thead>
-                  <tbody className="divide-y divide-ui-border/20">
-                    <tr><td className="px-6 py-4 font-bold text-primary">Table</td><td className="px-6 py-4">Root component.</td></tr>
-                    <tr><td className="px-6 py-4 font-bold text-primary">TableHeader</td><td className="px-6 py-4">Column group header.</td></tr>
-                    <tr><td className="px-6 py-4 font-bold text-primary">TableRow</td><td className="px-6 py-4">Standard row container.</td></tr>
-                    <tr><td className="px-6 py-4 font-bold text-primary">TableHead</td><td className="px-6 py-4">Header cell.</td></tr>
-                    <tr><td className="px-6 py-4 font-bold text-primary">TableCell</td><td className="px-6 py-4">Data cell.</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
@@ -95,8 +73,8 @@ export default function TableDocs() {
           <h3 className="text-lg font-bold">Standard Integration</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
-          <p className="text-emerald-400"># Import</p>
-          <p>import &#123; Table, TableHeader, TableRow, TableHead, TableBody, TableCell &#125; from "@/components/ui/table";</p>
+          <p className="text-emerald-400"># Usage</p>
+          <pre><code>&lt;Table&gt;...&lt;/Table&gt;</code></pre>
         </div>
       </section>
     </div>

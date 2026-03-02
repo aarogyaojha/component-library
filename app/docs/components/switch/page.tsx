@@ -3,8 +3,8 @@
 import { Switch } from "@/components/forms/switch";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/navigation/tabs";
-import { Card, CardContent } from "@/components/layout/card";
-import { Terminal, Zap } from "lucide-react";
+import { Terminal } from "lucide-react";
+import { ComponentPreview } from "@/components/docs/component-preview";
 
 export default function SwitchDocs() {
   return (
@@ -31,50 +31,33 @@ export default function SwitchDocs() {
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Standard Toggle</h3>
               <p className="text-muted-foreground">The typical usage for binary selection.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center gap-6">
-                  <div className="w-full max-w-xs flex items-center justify-between p-4 bg-background border border-ui-border/20 rounded-2xl">
+              <ComponentPreview name="Base Toggles">
+                <div className="w-full max-w-xs space-y-4">
+                  <div className="flex items-center justify-between p-4 bg-secondary/10 border border-ui-border/20 rounded-2xl">
                     <span className="text-sm font-bold opacity-70">Dark Mode</span>
                     <Switch />
                   </div>
-                  <div className="w-full max-w-xs flex items-center justify-between p-4 bg-background border border-ui-border/20 rounded-2xl">
+                  <div className="flex items-center justify-between p-4 bg-secondary/10 border border-ui-border/20 rounded-2xl">
                     <span className="text-sm font-bold opacity-70">Enable Beta Features</span>
                     <Switch defaultChecked />
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </ComponentPreview>
             </section>
 
             <section className="space-y-4">
               <h3 className="text-xl font-bold">Helper Context</h3>
               <p className="text-muted-foreground">Add extra descriptions to guide the user.</p>
-              <Card className="border-ui-border/30 bg-card/50">
-                <CardContent className="pt-10 pb-10 flex flex-col items-center gap-4">
-                  <div className="w-full max-w-sm flex items-start justify-between gap-8">
-                    <div className="space-y-0.5">
-                      <h4 className="font-bold text-sm">Marketing Emails</h4>
-                      <p className="text-xs text-muted-foreground">Receive emails about new products and updates.</p>
-                    </div>
-                    <Switch />
+              <ComponentPreview name="Toggles with Labels">
+                <div className="w-full max-w-sm flex items-start justify-between gap-8 p-6 bg-card border border-ui-border/20 rounded-3xl">
+                  <div className="space-y-0.5">
+                    <h4 className="font-bold text-sm">Marketing Emails</h4>
+                    <p className="text-xs text-muted-foreground">Receive emails about new products and updates.</p>
                   </div>
-                </CardContent>
-              </Card>
+                  <Switch />
+                </div>
+              </ComponentPreview>
             </section>
-          </TabsContent>
-
-          <TabsContent value="props" id="props">
-            <div className="bg-card border border-ui-border/50 rounded-2xl overflow-hidden">
-              <table className="w-full text-left text-sm">
-                <thead className="bg-secondary/20 text-muted-foreground uppercase text-[10px] font-bold tracking-widest">
-                  <tr><th className="px-6 py-4">Prop</th><th className="px-6 py-4">Type</th><th className="px-6 py-4">Description</th></tr>
-                </thead>
-                <tbody className="divide-y divide-ui-border/20">
-                  <tr><td className="px-6 py-4 font-mono font-bold text-primary">checked</td><td className="px-6 py-4 text-xs">boolean</td><td className="px-6 py-4 text-muted-foreground">The controlled checked state.</td></tr>
-                  <tr><td className="px-6 py-4 font-mono font-bold text-primary">onCheckedChange</td><td className="px-6 py-4 text-xs">(checked: boolean) =&gt; void</td><td className="px-6 py-4 text-muted-foreground">Callback for when the state changes.</td></tr>
-                  <tr><td className="px-6 py-4 font-mono font-bold text-primary">disabled</td><td className="px-6 py-4 text-xs">boolean</td><td className="px-6 py-4 text-muted-foreground">Prevents user interaction.</td></tr>
-                </tbody>
-              </table>
-            </div>
           </TabsContent>
         </Tabs>
       </div>
@@ -85,8 +68,8 @@ export default function SwitchDocs() {
           <h3 className="text-lg font-bold">Standard Usage</h3>
         </div>
         <div className="bg-slate-950 text-slate-100 p-6 rounded-2xl font-mono text-sm leading-relaxed shadow-2xl">
-          <p className="text-emerald-400"># Import</p>
-          <p>import &#123; Switch &#125; from "@/components/forms/switch";</p>
+          <p className="text-emerald-400"># Usage</p>
+          <pre><code>&lt;Switch checked=&#123;true&#125; /&gt;</code></pre>
         </div>
       </section>
     </div>

@@ -71,4 +71,4 @@ npx aarogya-ui@latest init
 
 ## 📄 License
 
-MIT © [Aarogya Design Team]
+MIT © Aarogya Ojha
