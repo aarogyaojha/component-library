@@ -50,7 +50,7 @@ export default function Home() {
               Explore Components
             </Button>
           </Link>
-          <Link href="https://github.com">
+          <Link href="https://github.com/aarogyaojha/component-library" target="_blank" rel="noopener noreferrer">
             <Button variant="outline" size="lg" className="rounded-2xl border-primary/20 hover:border-primary">
               View on GitHub
             </Button>

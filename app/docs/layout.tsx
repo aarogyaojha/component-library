@@ -107,7 +107,14 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
             <nav className="hidden md:flex items-center gap-6 text-sm font-semibold text-muted-foreground">
               <Link href="/docs" className="text-foreground hover:text-primary transition-colors">Docs</Link>
               <Link href="/docs/components" className="hover:text-primary transition-colors">Components</Link>
-              <Link href="#" className="hover:text-primary transition-colors">GitHub</Link>
+              <Link 
+                href="https://github.com/aarogyaojha/component-library" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors flex items-center gap-1.5"
+              >
+                GitHub
+              </Link>
             </nav>
           </div>
           <div className="flex items-center gap-4">
