@@ -12,7 +12,7 @@ import https from "https";
 const program = new Command();
 
 const GITHUB_RAW_BASE =
-  "https://raw.githubusercontent.com/aarogyaojha/component-library/main";
+  "https://raw.githubusercontent.com/aarogyaojha/component-library/master";
 
 // Map of all available components and their source paths in the repo
 const COMPONENTS_MAP = {
@@ -70,6 +70,7 @@ async function installComponent(name, rootDir, spinner) {
   const targetPath = path.join(rootDir, info.dest);
   if (await fs.pathExists(targetPath)) {
     spinner.info(chalk.dim(`  ${name} already exists, skipping.`));
+    spinner.start();
     return;
   }
 
@@ -94,10 +95,8 @@ program
   .description("Set up Aarogya UI in your project (installs deps, creates utils).")
   .action(async () => {
     console.log(
-      chalk.bold.magenta("\n  ╔═══════════════════════════╗") +
-      "\n" +
-      chalk.bold.magenta("  ║    Aarogya UI  v0.1.0     ║") +
-      "\n" +
+      chalk.bold.magenta("\n  ╔═══════════════════════════╗\n") +
+      chalk.bold.magenta("  ║    Aarogya UI  v0.1.0     ║\n") +
       chalk.bold.magenta("  ╚═══════════════════════════╝\n")
     );
 
